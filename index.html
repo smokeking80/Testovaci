@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>POKOSEK.CZ — Profesionální péče o zahradu v Brně</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#2A5C35;
+  --green-mid:#3D7A4A;
+  --green-light:#E8F0E9;
+  --cream:#FAFAF7;
+  --white:#FFFFFF;
+  --charcoal:#1C1C1A;
+  --gray:#6B6B68;
+  --border:#E2E2DC;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --radius:0px;
+  --pad:clamp(20px,5vw,80px);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--charcoal);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--green)}
+img{display:block;max-width:100%}
+
+/* HERO TILES — grassandgarden styl */
+/* TOP GRID — grassandgarden styl */
+.top-grid-section{
+  background:var(--charcoal);
+  padding:0;
+}
+.top-grid-wrap{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3px;
+}
+.top-tile{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  text-decoration:none;
+  background:var(--charcoal);
+}
+.top-tile-img{
+  position:absolute;inset:0;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.top-tile:hover .top-tile-img{transform:scale(1.07)}
+.top-tile-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .3s;
+}
+.top-tile::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.15) 50%, transparent 100%);
+  z-index:1;
+  transition:opacity .3s;
+}
+.top-tile:hover::after{opacity:.85}
+.top-tile-label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:18px 20px;
+  font-family:var(--serif);
+  font-size:clamp(1rem,1.8vw,1.3rem);
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-.01em;
+  z-index:2;
+  transition:padding .3s cubic-bezier(.22,1,.36,1);
+}
+.top-tile:hover .top-tile-label{padding-bottom:26px}
+@media(max-width:760px){
+  .top-grid-wrap{grid-template-columns:repeat(2,1fr)}
+  .top-tile{aspect-ratio:3/2}
+}
+@media(max-width:480px){
+  .top-grid-wrap{grid-template-columns:repeat(2,1fr)}
+  .top-tile{aspect-ratio:1/1}
+  .top-tile-label{font-size:.95rem;padding:14px 14px}
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1)}
+.reveal.on{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* NAV */
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:600px){}
+
+/* HERO — zelené pozadí, dlaždice */
+#hero{
+  background:linear-gradient(160deg,#0A1E0D 0%,#0F2A14 50%,#0A1E0D 100%);
+  display:flex;flex-direction:column;
+  padding:180px clamp(40px,10vw,160px) 80px;
+}
+.hero-img{display:none}
+.hero-content{display:none}
+/* HERO TILES */
+.hero-tiles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:20px;
+  max-width:900px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.hero-tile{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  text-decoration:none;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  min-height:154px;
+}
+/* Desktop only — hero shorter, space for future content */
+@media(min-width:761px){
+  .hero-tile{min-height:170px}
+}
+.hero-tile-img{
+  position:absolute;inset:0;
+  overflow:hidden;
+  transition:transform .6s cubic-bezier(.25,1,.5,1);
+}
+.hero-tile:hover .hero-tile-img{transform:scale(1.12)}
+.hero-tile-img img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.25,1,.5,1);
+}
+.hero-tile:hover .hero-tile-img img{transform:scale(1.0)}
+.hero-tile::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.15) 55%,transparent 100%);
+  z-index:1;
+  transition:opacity .4s;
+}
+.hero-tile::before{
+  content:'';
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0);
+  z-index:1;
+  transition:background .4s;
+}
+.hero-tile:hover::before{
+  background:rgba(0,0,0,0.15);
+}
+.hero-tile-label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px 16px;
+  font-family:var(--serif);
+  font-size:clamp(.9rem,1.6vw,1.3rem);
+  font-weight:700;color:#fff;
+  letter-spacing:-.01em;
+  z-index:2;
+  transition:padding .3s cubic-bezier(.22,1,.36,1);
+}
+.hero-tile:hover .hero-tile-label{padding-bottom:20px}
+.hero-tile:active .hero-tile-img{transform:scale(1.12)}
+.hero-tile:active .hero-tile-label{padding-bottom:20px}
+@media(max-width:760px){
+  #hero{padding:88px 10px 10px}
+  .hero-tiles{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-top:10px;
+  }
+  .hero-tile{min-height:160px}
+  .hero-tile-label{font-size:.95rem;padding:10px 12px}
+}
+@media(max-width:400px){
+  .hero-tile{min-height:130px}
+  .hero-tile-label{font-size:.82rem;padding:8px 10px}
+}
+.hero-tag{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 16px;border-radius:2px;margin-bottom:24px;
+  opacity:0;animation:fadeUp .6s 1.2s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-h1{
+  font-family:var(--serif);
+  font-size:clamp(3rem,7vw,6.5rem);
+  font-weight:900;line-height:.95;
+  letter-spacing:-.03em;color:#fff;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp .65s 1.35s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-h1 em{font-style:italic;color:rgba(255,255,255,.75)}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.8);
+  max-width:480px;line-height:1.7;margin-bottom:36px;
+  opacity:0;animation:fadeUp .65s 1.5s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-actions{
+  display:flex;gap:14px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .65s 1.65s cubic-bezier(.22,1,.36,1) forwards;
+}
+.btn-white{
+  background:#fff;color:var(--green);
+  padding:15px 32px;border-radius:2px;
+  font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:all .2s;
+}
+.btn-white:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.btn-outline-white{
+  border:1.5px solid rgba(255,255,255,.5);color:#fff;
+  padding:15px 32px;border-radius:2px;
+  font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:all .2s;
+}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-scroll{
+  position:absolute;bottom:32px;right:var(--pad);
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.5);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  opacity:0;animation:fadeUp .6s 2s cubic-bezier(.22,1,.36,1) forwards;
+}
+.scroll-line{
+  width:40px;height:1px;background:rgba(255,255,255,.3);
+  position:relative;overflow:hidden;
+}
+.scroll-line::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:rgba(255,255,255,.6);
+  animation:scrollLine 2s 2.5s ease-in-out infinite;
+}
+@keyframes scrollLine{to{left:200%}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* STATS BAR */
+.stats-bar{
+  background:var(--green);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.stat{
+  padding:36px var(--pad);
+  border-right:1px solid rgba(255,255,255,.12);
+  text-align:center;
+}
+.stat:last-child{border-right:none}
+.stat-num{
+  font-family:var(--serif);font-size:2.8rem;font-weight:900;
+  color:#fff;line-height:1;letter-spacing:-.04em;
+}
+.stat-label{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:6px}
+
+/* ABOUT */
+#o-nas{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+}
+.logo-badge{
+  display:block;border-radius:14px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+}
+.logo-badge-md{width:clamp(90px,22vw,220px);height:clamp(90px,22vw,220px);margin-bottom:clamp(16px,3vw,28px);}
+.logo-badge-lg{width:clamp(100px,26vw,280px);height:clamp(100px,26vw,280px);margin-bottom:clamp(18px,3.5vw,32px);}
+
+.about-img{
+  background:
+    linear-gradient(135deg, #2A5C35 0%, #3D7A4A 40%, #5A9E65 70%, #7AB87F 100%);
+  display:flex;align-items:flex-end;justify-content:flex-start;padding:48px;
+  min-height:500px;
+  overflow:hidden;
+}
+.about-text{
+  padding:80px clamp(32px,5vw,80px);
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--white);
+}
+.section-label{
+  font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--green);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';display:block;width:28px;height:1.5px;background:var(--green)}
+.about-h{
+  font-family:var(--serif);
+  font-size:clamp(2rem,3.5vw,3rem);font-weight:700;
+  line-height:1.1;letter-spacing:-.02em;
+  color:var(--charcoal);margin-bottom:20px;
+}
+.about-h em{font-style:italic;color:var(--green)}
+.about-p{font-size:.97rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
+.about-checks{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.check-item{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:var(--charcoal)}
+.check-icon{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--green-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;flex-shrink:0;color:var(--green);margin-top:1px;
+}
+
+/* SERVICES */
+#sluzby{padding:100px var(--pad);background:var(--cream)}
+.sluzby-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:end;margin-bottom:64px;
+}
+.sluzby-h{
+  font-family:var(--serif);
+  font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;
+  line-height:1.05;letter-spacing:-.02em;
+  color:var(--charcoal);
+}
+.sluzby-h em{font-style:italic;color:var(--green)}
+.sluzby-sub{font-size:.97rem;color:var(--gray);line-height:1.75;max-width:420px}
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2px;background:var(--border);
+  border:1px solid var(--border);
+}
+.svc{
+  background:var(--white);
+  padding:44px 40px;
+  transition:background .3s;
+  position:relative;overflow:hidden;
+}
+.svc::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--green-mid));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.svc:hover{background:var(--green-light)}
+.svc:hover::after{transform:scaleX(1)}
+.svc-num{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--border);margin-bottom:20px}
+.svc-icon{font-size:2.2rem;margin-bottom:16px;display:block;line-height:1}
+.svc-name{
+  font-family:var(--serif);font-size:1.5rem;font-weight:700;
+  color:var(--charcoal);margin-bottom:10px;line-height:1.2;
+}
+.svc-desc{font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:20px}
+.svc-link{
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--green);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1px solid var(--green);padding-bottom:2px;
+  transition:gap .2s;
+}
+.svc-link:hover{gap:10px}
+
+/* PRICING */
+#cenik{padding:100px var(--pad);background:var(--white)}
+.cenik-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:end;margin-bottom:64px;
+}
+.cenik-h{
+  font-family:var(--serif);
+  font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;
+  line-height:1.05;letter-spacing:-.02em;color:var(--charcoal);
+}
+.cenik-h em{font-style:italic;color:var(--green)}
+.cenik-sub{font-size:.97rem;color:var(--gray);line-height:1.75}
+.cenik-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.cenik-card{
+  border:1px solid var(--border);
+  border-radius:4px;overflow:hidden;
+}
+.cenik-card-head{
+  background:var(--green);
+  padding:28px 32px;
+  display:flex;align-items:center;gap:14px;
+}
+.cenik-card-head-icon{font-size:1.6rem}
+.cenik-card-head-title{
+  font-family:var(--serif);font-size:1.3rem;font-weight:700;
+  color:#fff;
+}
+.cenik-body{padding:0 32px 28px}
+.cenik-row{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;padding:16px 0;
+  border-bottom:1px solid var(--border);
+}
+.cenik-row:last-child{border-bottom:none}
+.cenik-row-name{flex:1}
+.cenik-row-name strong{display:block;font-size:.9rem;font-weight:600;color:var(--charcoal);margin-bottom:3px}
+.cenik-row-name small{font-size:.78rem;color:var(--gray)}
+.cenik-row-price{
+  font-size:.88rem;font-weight:700;color:var(--green);
+  white-space:nowrap;text-align:right;flex-shrink:0;padding-top:2px;
+}
+.cenik-note{
+  margin:20px 32px 28px;padding:14px 16px;
+  background:var(--green-light);border-radius:2px;
+  font-size:.8rem;color:var(--green);line-height:1.5;
+}
+.cenik-note strong{font-weight:600}
+
+/* PROCESS */
+
+
+.proces-label::before{background:rgba(255,255,255,.3)}
+
+.proces-h em{font-style:italic;color:rgba(255,255,255,.5)}
+
+
+.proc-step:last-child{border-right:none}
+
+
+
+
+
+/* CONTACT */
+#kontakt{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:700px;
+}
+.kontakt-img{
+  background:linear-gradient(135deg, #1a3a20 0%, #2A5C35 60%, #3D7A4A 100%);
+  position:relative;
+  overflow:hidden;
+}
+.kontakt-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(42,92,53,.8),rgba(0,0,0,.4));
+  display:flex;flex-direction:column;justify-content:flex-start;
+  padding:48px;
+}
+.kontakt-sticky{
+  position:sticky;
+  top:112px;
+}
+.k-tag{
+  font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:16px;
+}
+.k-quote{
+  font-family:var(--serif);font-size:1.8rem;font-weight:700;
+  color:#fff;line-height:1.2;letter-spacing:-.02em;
+  margin-bottom:32px;
+}
+.k-quote em{font-style:italic;color:rgba(255,255,255,.65)}
+.k-contacts{display:flex;flex-direction:column;gap:14px}
+.k-contact{
+  display:flex;gap:12px;align-items:center;
+}
+.k-contact-icon{
+  width:36px;height:36px;border-radius:2px;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+.k-contact-val{font-size:.9rem;color:rgba(255,255,255,.8);font-weight:500}
+.k-contact-link{text-decoration:none;cursor:pointer;transition:transform .2s}
+.k-contact-link:hover{transform:translateX(4px)}
+.k-contact-link:hover .k-contact-icon{background:rgba(255,255,255,.22)}
+.k-contact-link:hover .k-contact-val{color:#fff}
+.kontakt-form{
+  background:var(--cream);
+  padding:72px clamp(28px,4vw,64px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.form-title{
+  font-family:var(--serif);font-size:1.6rem;font-weight:700;
+  color:var(--charcoal);margin-bottom:28px;letter-spacing:-.01em;
+}
+.fg{margin-bottom:16px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+label{
+  display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:#fff;margin-bottom:6px;
+}
+input,textarea,select{
+  width:100%;padding:12px 14px;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:2px;font-family:var(--sans);font-size:.93rem;
+  color:var(--charcoal);outline:none;
+  transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(42,92,53,.1);
+}
+input::placeholder,textarea::placeholder{color:#bbb}
+select option{background:var(--white);color:var(--charcoal)}
+textarea{resize:vertical;min-height:100px}
+.kontakt-form label{color:var(--charcoal)}
+.choice-group{display:flex;flex-direction:column;gap:8px}
+.choice-option{
+  display:flex;align-items:center;gap:9px;
+  font-size:.88rem;font-weight:400;text-transform:none;letter-spacing:normal;
+  color:var(--charcoal);cursor:pointer;
+}
+.choice-option input[type="radio"],.choice-option input[type="checkbox"]{
+  width:16px;height:16px;flex:0 0 auto;accent-color:var(--green);
+  -webkit-appearance:auto;appearance:auto;padding:0;
+}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+@media(max-width:480px){.choice-grid{grid-template-columns:1fr}}
+.submit-btn{
+  width:100%;margin-top:8px;padding:15px;border:none;border-radius:2px;
+  background:var(--green);color:#fff;
+  font-family:var(--sans);font-size:.82rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s,transform .2s;
+}
+.submit-btn:hover{background:var(--green-mid);transform:translateY(-1px)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.form-note{text-align:center;margin-top:10px;font-size:.75rem;color:var(--gray)}
+.success-box{
+  display:none;background:var(--green-light);border:1.5px solid var(--green);
+  border-radius:2px;padding:20px;text-align:center;
+  color:var(--green);font-size:.93rem;line-height:1.6;margin-top:12px;
+}
+.success-box.show{display:block}
+
+/* MAPA */
+
+.mapa-section .section-label{justify-content:center}
+
+
+.mapa-link a{
+  font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--green);text-decoration:none;border-bottom:1.5px solid var(--green);
+  padding-bottom:2px;transition:color .2s,border-color .2s;
+}
+.mapa-link a:hover{color:var(--green-mid);border-color:var(--green-mid)}
+
+.mapa-embed iframe{width:100%;height:100%;display:block}
+@media(max-width:760px){
+  
+}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(160deg,#0A1E0D 0%,#0F2A14 50%,#0A1E0D 100%);
+  display:flex;flex-direction:column;
+  padding:56px var(--pad) 36px;
+}
+.footer-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:40px;flex-wrap:wrap;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:28px;
+}
+.footer-logo{
+  font-family:var(--serif);font-size:1.3rem;font-weight:700;
+  color:#fff;margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.footer-logo-img{height:144px;width:auto;display:block;border-radius:4px;}
+.footer-logo span{color:var(--green-mid)}
+.footer-tagline{font-size:.8rem;color:rgba(255,255,255,.4)}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.footer-links a{
+  font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;
+}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.25);letter-spacing:.02em;margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);}
+.social-links{display:flex;gap:10px;margin-top:24px}
+.social-icon{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.7);
+  transition:border-color .2s,color .2s,background .2s;
+  flex:0 0 auto;
+}
+.social-icon svg{width:16px;height:16px}
+.social-icon:hover{border-color:var(--green-mid);color:var(--green-mid);background:rgba(61,122,74,.12)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+    
+  #o-nas{grid-template-columns:1fr}
+  .about-img{min-height:300px}
+  .sluzby-header,.cenik-intro{grid-template-columns:1fr;gap:24px}
+  .services-grid{grid-template-columns:1fr}
+  .cenik-grid{grid-template-columns:1fr}
+  
+  
+  #kontakt{grid-template-columns:1fr}
+  .kontakt-img{min-height:560px}
+  .stats-bar{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding:28px var(--pad)}
+  .stat:last-child{border-bottom:none}
+  #sluzby .grid-3{grid-template-columns:1fr 1fr}
+  .hero-tiles{grid-template-columns:repeat(3,1fr)}
+  .hero-tile{aspect-ratio:4/3}
+}
+@media(max-width:600px){
+
+  #hero{
+      min-height:auto;
+      height:auto;
+      padding:72px 8px 8px;
+  }
+
+  .hero-tiles{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:6px;
+      margin-top:0;
+  }
+
+  .hero-tile{
+      aspect-ratio:1.15/1;
+      border-radius:8px;
+  }
+
+  .hero-tile-label{
+      font-size:.75rem;
+      padding:8px;
+      line-height:1.2;
+  }
+
+  
+
+  .fg-row{
+      grid-template-columns:1fr;
+  }
+
+  .footer-top{
+      flex-direction:column;
+      gap:24px;
+  }
+
+  #sluzby .grid-3{
+      grid-template-columns:1fr;
+  }
+}
+@media(max-width:400px){
+  .hero-tiles{grid-template-columns:repeat(2,1fr)}
+}
+
+/* CO VŠE DĚLÁME */
+#co-delame{
+  background:var(--white);
+  padding:56px var(--pad);
+  border-top:1px solid var(--border);
+}
+.co-delame-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.co-delame-label{
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.co-delame-label::before{content:'🌿';font-size:.9rem}
+.co-delame-accordion{display:flex;flex-direction:column;gap:0}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-item:first-child{border-top:1px solid var(--border)}
+.acc-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:1rem;font-weight:600;
+  color:var(--charcoal);text-align:left;
+  transition:color .2s;
+  gap:16px;
+}
+.acc-btn:hover{color:var(--green)}
+.acc-btn.active{color:var(--green)}
+.acc-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--green-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.acc-title{flex:1;text-align:left}
+.acc-arrow{
+  font-size:.8rem;color:var(--gray);
+  transition:transform .3s,color .2s;
+  flex-shrink:0;
+}
+.acc-btn.active .acc-arrow{transform:rotate(45deg);color:var(--green)}
+.acc-body{
+  display:none;
+  padding:0 0 18px 52px;
+  font-size:.9rem;color:var(--gray);line-height:1.7;
+}
+.acc-body.open{display:block}
+
+.co-delame-right{}
+.co-delame-title{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;
+  letter-spacing:-.02em;line-height:1.1;
+  color:var(--charcoal);margin-bottom:24px;
+}
+.co-delame-text p{
+  color:var(--gray);line-height:1.75;font-size:.97rem;margin-bottom:14px;
+}
+
+/* FOTOGALERIE */
+#galerie{
+  background:var(--cream);
+  padding:48px var(--pad);
+  border-top:1px solid var(--border);
+}
+.galerie-header{
+  max-width:1100px;margin:0 auto 32px;
+  display:flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--charcoal);
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+}
+.galerie-header::before{content:'🌿';font-size:.9rem}
+.galerie-track-wrap{
+  max-width:1100px;margin:0 auto;
+  overflow:hidden;
+  position:relative;
+}
+.galerie-track{
+  display:flex;gap:20px;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.galerie-card{
+  flex:0 0 calc(25% - 15px);
+  border-radius:12px;overflow:hidden;
+  background:var(--white);
+  border:1px solid var(--border);
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.galerie-card img{
+  width:100%;aspect-ratio:4/3;
+  object-fit:cover;display:block;
+  transition:transform .4s;
+}
+.galerie-card:hover img{transform:scale(1.04)}
+.galerie-card-body{padding:16px}
+.galerie-card-title{
+  font-weight:700;font-size:.95rem;
+  color:var(--charcoal);margin-bottom:6px;line-height:1.3;
+}
+.galerie-card-desc{font-size:.82rem;color:var(--gray);line-height:1.5}
+.galerie-nav{
+  max-width:1100px;margin:28px auto 0;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.galerie-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);border:none;cursor:pointer;
+  transition:background .2s,transform .2s;padding:0;
+}
+.galerie-dot.active{background:var(--green);transform:scale(1.3)}
+
+@media(max-width:860px){
+  .co-delame-inner{grid-template-columns:1fr;gap:40px}
+  .galerie-card{flex:0 0 calc(50% - 10px)}
+}
+@media(max-width:480px){
+  .galerie-card{flex:0 0 85%}
+}
+
+
+
+
+
+/* SERVIS — grassandgarden styl */
+#servis{
+  background:var(--white);
+  padding:0 var(--pad);
+  border-top:1px solid var(--border);
+}
+.servis-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.servis-label{
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gray);padding:48px 0 24px;
+  display:flex;align-items:center;gap:10px;
+}
+.servis-acc{display:flex;flex-direction:column}
+.servis-item{
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.servis-item:first-child{border-top:1px solid var(--border)}
+.servis-btn{
+  width:100%;display:flex;align-items:center;
+  padding:20px 16px;gap:16px;
+  background:transparent;
+  border:none;cursor:pointer;
+  font-family:var(--sans);font-size:1rem;font-weight:600;
+  color:var(--charcoal);text-align:left;
+  transition:background .25s,color .25s;
+  border-radius:0;
+  margin-bottom:0;
+}
+.servis-btn:hover{
+  background:var(--charcoal);
+  color:#fff;
+}
+.servis-btn:hover .servis-ico i{color:#fff}
+.servis-btn.active{
+  background:var(--charcoal);
+  color:#fff;
+}
+.servis-btn.active .servis-ico i{color:#9ACD5A}
+.servis-btn .servis-ico{
+  width:36px;height:36px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.servis-btn .servis-ico i{
+  font-size:1.4rem;color:var(--green);
+  transition:color .25s;
+}
+.servis-btn-title{flex:1;text-align:left}
+.servis-btn-dash{
+  color:var(--gray);
+  display:flex;flex-direction:column;gap:4px;
+  flex-shrink:0;transition:color .25s;
+}
+.servis-btn:hover .servis-btn-dash,
+.servis-btn.active .servis-btn-dash{color:rgba(255,255,255,.5)}
+.servis-btn-dash span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px}
+.servis-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.22,1,.36,1);
+  background:var(--cream);
+}
+.servis-body.open{max-height:400px}
+.servis-body-inner{
+  padding:20px 20px 24px 68px;
+  font-size:.93rem;color:var(--gray);line-height:1.75;
+}
+
+.servis-right{
+  padding:48px 0;
+  position:sticky;top:88px;
+}
+.servis-right h2{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;
+  letter-spacing:-.02em;line-height:1.1;
+  color:var(--charcoal);margin-bottom:24px;
+}
+.servis-right p{
+  color:var(--gray);line-height:1.75;font-size:.97rem;margin-bottom:14px;
+}
+
+@media(max-width:860px){
+  .servis-inner{grid-template-columns:1fr;gap:0}
+  .servis-right{padding:32px 0;position:static}
+  .servis-body-inner{padding:16px 16px 20px 16px}
+}
+
+</style>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+</head>
+<body>
+<!-- HERO — zelené pozadí s dlaždicemi -->
+<section id="hero">
+<div class="hero-tiles">
+  <a href="seceni.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/seceni.jpeg" alt="Sečení"/></div>
+    <div class="hero-tile-label">Sečení</div>
+  </a>
+  <a href="zavlazovani.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/3.jpeg" alt="Zavlažování"/></div>
+    <div class="hero-tile-label">Zavlažování</div>
+  </a>
+  <a href="navrhy.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/navrhy-zahrad.jpeg" alt="Návrhy"/></div>
+    <div class="hero-tile-label">Návrhy</div>
+  </a>
+  <a href="upravy.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/12.jpg" alt="Úprava okrajů"/></div>
+    <div class="hero-tile-label">Úprava okrajů</div>
+  </a>
+  <a href="arealy.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/udrzba-arealu.jpeg" alt="Areály"/></div>
+    <div class="hero-tile-label">Areály</div>
+  </a>
+  <a href="odvoz.html" class="hero-tile">
+    <div class="hero-tile-img"><img src="images/4.jpeg" alt="Odvoz biomasy"/></div>
+    <div class="hero-tile-label">Odvoz biomasy</div>
+  </a>
+</div>
+</section>
+
+<!-- SERVIS -->
+<section id="servis">
+  <div class="servis-inner">
+    <div>
+      <div class="servis-label">Servis</div>
+      <div class="servis-acc" id="servisAcc">
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-lightbulb"></i></span>
+            <span class="servis-btn-title">Jsme kreativní a máme nápad</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Jsme kreativní a nasloucháme vašim představám. Navrhneme řešení na míru, které bude odpovídat vašim požadavkům, možnostem i rozpočtu.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-map-pin"></i></span>
+            <span class="servis-btn-title">Konzultace na místě</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">V případě zájmu o jakoukoliv zakázku za Vámi rádi přijedeme a osobně s Vámi probereme všechny potřebné detaily. Úvodní konzultace je samozřejmě zcela zdarma.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-ruler"></i></span>
+            <span class="servis-btn-title">Návrhy zahrady</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Na základě osobní konzultace připravíme návrh řešení přesně podle vašich představ. Může jít o jednoduchý náčrt, detailnější vizualizaci s plánem rozmístění a počtem rostlin, nebo také o profesionální 3D návrh zpracovaný architektem.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-drop"></i></span>
+            <span class="servis-btn-title">Realizace zavlažování</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Zaměříme zahradu a připravíme všechny potřebné podklady pro zpracování návrhu a projektové dokumentace. V případě potřeby provedeme také tlakovou zkoušku přivedené vody. Návrh zavlažovacího systému zpravidla zpracováváme jako součást celkového návrhu zahrady.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-plant"></i></span>
+            <span class="servis-btn-title">Realizace zahrad</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Celou zahradu dokážeme kompletně zrealizovat podle společné domluvy, připraveného návrhu nebo projektové dokumentace. Zajistíme veškerý materiál včetně rostlin, které vybíráme přímo od pěstitelů — kvalitní rostliny za velmi zajímavé ceny.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-scissors"></i></span>
+            <span class="servis-btn-title">Údržba zahrad</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Provádíme pravidelnou i jednorázovou údržbu zahrad. Postaráme se o střih ovocných stromů, úpravu keřů i pravidelné zastřihování živých plotů. Přebytečný odpad odvezeme a ekologicky zpracujeme.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-buildings"></i></span>
+            <span class="servis-btn-title">Firemní areály</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Pravidelně i jednorázově se staráme o údržbu zeleně ve firemních areálech, sportovních hřištích i rezidenčních oblastech. Přijíždíme vždy včas — termíny si hlídáme sami. Přebytečný odpad odvezeme a ekologicky zpracujeme.</div></div>
+        </div>
+
+        <div class="servis-item">
+          <button class="servis-btn" onclick="toggleServis(this)">
+            <span class="servis-ico"><i class="ph ph-tree"></i></span>
+            <span class="servis-btn-title">Sečení a vertikutace trávy</span>
+            <div class="servis-btn-dash"><span></span><span></span></div>
+          </button>
+          <div class="servis-body"><div class="servis-body-inner">Poskytujeme profesionální sečení trávy v Brně a okolí. Díky moderní technice zvládneme i rozsáhlé pozemky až do 10 000 m². Sekáme zahrady, louky, obecní pozemky, sportovní plochy i firemní areály. Domluvíme se na pravidelné údržbě i jednorázovém sečení.</div></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="servis-right">
+      <h2>Co vše děláme</h2>
+      <p>Navrhujeme zahrady, parky nebo i firemní areály. Připravíme od základního náčrtku přes detailní vizualizaci až po kompletní kladecí plán a výpis rostlin.</p>
+      <p>Poskytujeme údržbu zeleně a sečení trávy v Brně a okolí. Vlastníme profesionální sekací stroje, se kterými zvládneme posekat i opravdu velké plochy.</p>
+      <p>Pravidelně sečeme trávu a udržujeme zeleň firemních areálů, sportovních hřišť a rezidenčních oblastí. Nabízíme i vertikutaci velkých travnatých ploch se sběrem.</p>
+      <p>Přebytečný odpad odvezeme a ekologicky zpracujeme. Větve lze štěpkovat a vzniklou štěpku využít jako přírodní podklad do záhonů.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOTOGALERIE -->
+<section id="galerie">
+  <div class="galerie-header">Jak a co děláme</div>
+  <div class="galerie-track-wrap">
+    <div class="galerie-track" id="galerieTrack">
+      <div class="galerie-card">
+        <img src="images/seceni.jpeg" alt="Sečení trávy" loading="lazy"/>
+        <div class="galerie-card-body">
+          <div class="galerie-card-title">Sečení trávy</div>
+          <div class="galerie-card-desc">Profesionální sečení travního porostu pro každou zahradu i areál.</div>
+        </div>
+      </div>
+      <div class="galerie-card">
+        <img src="images/3.jpeg" alt="Zavlažování" loading="lazy"/>
+        <div class="galerie-card-body">
+          <div class="galerie-card-title">Automatické zavlažování</div>
+          <div class="galerie-card-desc">Návrh a instalace závlahového systému na míru vaší zahrady.</div>
+        </div>
+      </div>
+      <div class="galerie-card">
+        <img src="images/udrzba-arealu.jpeg" alt="Údržba areálů" loading="lazy"/>
+        <div class="galerie-card-body">
+          <div class="galerie-card-title">Údržba areálů</div>
+          <div class="galerie-card-desc">Pravidelná péče o firemní areály, hřiště a rezidenční oblasti.</div>
+        </div>
+      </div>
+      <div class="galerie-card">
+        <img src="images/4.jpeg" alt="Odvoz biomasy" loading="lazy"/>
+        <div class="galerie-card-body">
+          <div class="galerie-card-title">Odvoz biomasy</div>
+          <div class="galerie-card-desc">Odvoz a ekologická likvidace trávy, listí a větví.</div>
+        </div>
+      </div>
+      <div class="galerie-card">
+        <img src="images/12.jpg" alt="Úprava okrajů" loading="lazy"/>
+        <div class="galerie-card-body">
+          <div class="galerie-card-title">Úprava okrajů</div>
+          <div class="galerie-card-desc">Precizní okraje trávníku podél chodníků a záhonů.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="galerie-nav" id="galerieNav"></div>
+</section>
+
+<!-- MAPA 
+<section style="background:var(--white);border-top:1px solid var(--border);padding:32px var(--pad)">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:1.2rem">📍</span>
+      <div>
+        <div style="font-weight:600;font-size:.95rem;color:var(--charcoal)">Mezníkova 394/4, Brno-Žabovřesky</div>
+        <div style="font-size:.82rem;color:var(--gray);margin-top:2px">Brno a okolí do 30 km · Po–So 7:00–18:00</div>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/place/Mezníkova+394%2F4,+616+00+Brno-Žabovřesky/@49.2107911,16.583836,17z/data=!3m1!4b1!4m6!3m5!1s0x47129417db5c9fdb:0x93f027e25e4b8bc4!8m2!3d49.2107911!4d16.583836!16s%2Fg%2F11c270n_8_?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--green);color:#fff;border-radius:2px;text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .2s">
+      Otevřít v Google Maps →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-top">
+<div>
+<div class="footer-logo"><img class="footer-logo-img" src="images/brand-name.png" alt="Pokosek.cz"/></div>
+<!-- <div class="footer-tagline">Grafika, weby, tisk, reklama
+</div>
+</div>
+<nav aria-label="Patička" class="footer-links">
+<!-- <a href="seceni.html">Sečení</a> -->
+<!-- <a href="zavlazovani.html">Zavlažování</a> -->
+<!-- <a href="navrhy.html">Návrhy</a> 
+<a href="cenik.html">Ceník</a>
+<a href="kontakt.html">Kontakt</a> -->
+</nav>
+</div>
+<p class="footer-copy">© 2025 Pokosek.cz · Brno a okolí · Sekání trávy, zavlažování, křovinořez, odvoz biomasy</p>
+<div class="social-links" aria-label="Sociální sítě a WhatsApp">
+<!-- Vlož svůj odkaz na Facebook -->
+<a href="#" class="social-icon" aria-label="Facebook" title="Facebook">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v7h3v-7h2.2l.8-3H14v-1.5c0-.6.4-1 1-1h2V6.2c-.4 0-1.5-.2-2.5-.2C13 6 12 7.2 12 9.4"/></svg>
+</a>
+<!-- Vlož svůj odkaz na Instagram -->
+<a href="#" class="social-icon" aria-label="Instagram" title="Instagram">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor" stroke="none"/></svg>
+</a>
+<!-- Vlož svoje číslo bez '+' a mezer, např. 420735649011 -->
+<a href="https://wa.me/420735649011" class="social-icon" aria-label="Napsat na WhatsApp" title="WhatsApp">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17l-1.4 3.4L9.2 19A8 8 0 1 0 5 15.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 9.5c0 3.5 3 6.5 6.5 6.5.7 0 1-.6.9-1.2l-.3-1a1 1 0 0 0-1-.7l-1.3.2a5 5 0 0 1-3.1-3.1l.2-1.3a1 1 0 0 0-.7-1l-1-.3c-.6-.1-1.2.2-1.2.9Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+</div>
+</footer>
+<script>
+// Nav scroll
+// nav handled by nav.js
+
+
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+<script>
+function toggleServis(btn){
+  var item = btn.parentElement;
+  var body = item.querySelector('.servis-body');
+  var isOpen = body.classList.contains('open');
+  // Close all
+  document.querySelectorAll('#servisAcc .servis-btn').forEach(function(b){
+    b.classList.remove('active');
+    b.parentElement.querySelector('.servis-body').classList.remove('open');
+  });
+  // Open if was closed
+  if(!isOpen){
+    btn.classList.add('active');
+    body.classList.add('open');
+  }
+}
+</script>
+<script src="nav.js"></script>
+
+<script>
+// Accordion
+function toggleAcc(btn){
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.acc-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.nextElementSibling.classList.remove('open');
+  });
+  // Open clicked if was closed
+  if(!isOpen){
+    btn.classList.add('active');
+    body.classList.add('open');
+  }
+}
+
+// Gallery slider
+(function(){
+  const track = document.getElementById('galerieTrack');
+  const nav = document.getElementById('galerieNav');
+  if(!track || !nav) return;
+
+  const cards = track.querySelectorAll('.galerie-card');
+  const total = cards.length;
+  let current = 0;
+
+  // Create dots
+  cards.forEach((_,i)=>{
+    const dot = document.createElement('button');
+    dot.className = 'galerie-dot' + (i===0?' active':'');
+    dot.setAttribute('aria-label', 'Snímek ' + (i+1));
+    dot.addEventListener('click', ()=>goTo(i));
+    nav.appendChild(dot);
+  });
+
+  function goTo(idx){
+    current = idx;
+    const cardW = cards[0].offsetWidth + 20;
+    track.style.transform = 'translateX(-' + (cardW * current) + 'px)';
+    nav.querySelectorAll('.galerie-dot').forEach((d,i)=>{
+      d.classList.toggle('active', i===current);
+    });
+  }
+
+  // Touch/swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', e=>{
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 50){
+      if(diff > 0 && current < total-1) goTo(current+1);
+      else if(diff < 0 && current > 0) goTo(current-1);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
