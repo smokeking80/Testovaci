@@ -17,7 +17,7 @@ nav#main-nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 clamp(20px,5vw,80px);height:72px;
-  background:linear-gradient(120deg, rgba(63,122,74,.55) 0%, rgba(22,50,29,.82) 100%);
+  background:linear-gradient(120deg, rgba(45,88,54,.94) 0%, rgba(16,35,20,.97) 100%);
   backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
   border-bottom:1px solid rgba(255,255,255,.14);
   transition:background .3s;
@@ -287,8 +287,8 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); 
 const mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   mainNav.style.background = scrollY > 40
-    ? 'linear-gradient(120deg, rgba(63,122,74,.72) 0%, rgba(15,38,20,0.94) 100%)'
-    : 'linear-gradient(120deg, rgba(63,122,74,.55) 0%, rgba(22,50,29,.82) 100%)';
+    ? 'linear-gradient(120deg, rgba(45,88,54,.97) 0%, rgba(12,28,16,.98) 100%)'
+    : 'linear-gradient(120deg, rgba(45,88,54,.94) 0%, rgba(16,35,20,.97) 100%)';
 }, { passive: true });
 
 // Body padding for fixed nav
