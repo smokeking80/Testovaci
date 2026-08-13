@@ -43,7 +43,7 @@ img{display:block;max-width:100%}
 .contact-items{display:flex;flex-direction:column;gap:0}
 .contact-item{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--border)}
 .contact-item:first-child{border-top:1px solid var(--border)}
-.ci-icon{width:44px;height:44px;border-radius:2px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-icon{width:44px;height:44px;border-radius:2px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.25rem;color:var(--green);flex-shrink:0}
 .ci-label{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
 .ci-val{font-size:1rem;font-weight:600;color:var(--charcoal)}
 .ci-val a{color:var(--charcoal);text-decoration:none}
@@ -51,7 +51,9 @@ img{display:block;max-width:100%}
 .services-quick{margin-top:40px}
 .services-quick-title{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:16px}
 .services-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.svc-quick{display:block;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:2px;font-size:.82rem;font-weight:500;color:var(--charcoal);text-decoration:none;transition:all .2s}
+.svc-quick{display:flex;align-items:center;gap:9px;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:2px;font-size:.82rem;font-weight:500;color:var(--charcoal);text-decoration:none;transition:all .2s}
+.svc-quick i{font-size:1.05rem;color:var(--green);transition:color .2s}
+.svc-quick:hover i{color:var(--green)}
 .svc-quick:hover{border-color:var(--green);color:var(--green);background:var(--green-light)}
 /* FORM */
 .form-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:40px;position:sticky;top:88px}
@@ -141,28 +143,28 @@ footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13
     <p class="contact-info-sub">Vyplňte formulář a my vám do 24 hodin pošleme nabídku zdarma a bez závazku.</p>
     <div class="contact-items">
       <div class="contact-item">
-        <div class="ci-icon">📞</div>
+        <div class="ci-icon"><i class="ph ph-phone"></i></div>
         <div>
           <div class="ci-label">Telefon</div>
           <div class="ci-val"><a href="tel:+420777000222">+420 735 649 011</a></div>
         </div>
       </div>
       <div class="contact-item">
-        <div class="ci-icon">✉️</div>
+        <div class="ci-icon"><i class="ph ph-envelope-simple"></i></div>
         <div>
           <div class="ci-label">Email</div>
           <div class="ci-val"><a href="mailto:info@pokosek.cz">info@pokosek.cz</a></div>
         </div>
       </div>
       <div class="contact-item">
-        <div class="ci-icon">📍</div>
+        <div class="ci-icon"><i class="ph ph-map-pin"></i></div>
         <div>
           <div class="ci-label">Oblast</div>
           <div class="ci-val">Brno a okolí do 30 km</div>
         </div>
       </div>
       <div class="contact-item">
-        <div class="ci-icon">🕐</div>
+        <div class="ci-icon"><i class="ph ph-clock"></i></div>
         <div>
           <div class="ci-label">Pracovní doba</div>
           <div class="ci-val">Po–So 7:00–18:00</div>
@@ -172,12 +174,12 @@ footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13
     <div class="services-quick">
       <div class="services-quick-title">Naše služby</div>
       <div class="services-quick-grid">
-        <a href="seceni.html" class="svc-quick">🌾 Sečení trávy</a>
-        <a href="zavlazovani.html" class="svc-quick">💧 Zavlažování</a>
-        <a href="navrhy.html" class="svc-quick">📐 Návrhy zahrad</a>
-        <a href="upravy.html" class="svc-quick">✂️ Úprava okrajů</a>
-        <a href="arealy.html" class="svc-quick">🏢 Areály</a>
-        <a href="odvoz.html" class="svc-quick">🚛 Odvoz biomasy</a>
+        <a href="seceni.html" class="svc-quick"><i class="ph ph-plant"></i> Sečení trávy</a>
+        <a href="zavlazovani.html" class="svc-quick"><i class="ph ph-drop"></i> Zavlažování</a>
+        <a href="navrhy.html" class="svc-quick"><i class="ph ph-ruler"></i> Návrhy zahrad</a>
+        <a href="upravy.html" class="svc-quick"><i class="ph ph-scissors"></i> Úprava okrajů</a>
+        <a href="arealy.html" class="svc-quick"><i class="ph ph-buildings"></i> Areály</a>
+        <a href="odvoz.html" class="svc-quick"><i class="ph ph-truck"></i> Odvoz biomasy</a>
       </div>
     </div>
   </div>
