@@ -17,9 +17,9 @@ nav#main-nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 clamp(20px,5vw,80px);height:72px;
-  background:rgba(8,24,12,0.95);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(120deg, rgba(63,122,74,.55) 0%, rgba(22,50,29,.82) 100%);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.14);
   transition:background .3s;
 }
 .mnav-logo{
@@ -29,13 +29,13 @@ nav#main-nav{
 @media(min-width:601px){
   .mnav-logo{margin-left:50px}
 }
-.mnav-logo img{height:130px;width:auto;border-radius:3px}
+.mnav-logo svg{height:38px;width:auto;display:block;filter:drop-shadow(0 0 18px rgba(215,240,200,.45))}
 .mnav-logo-text{
   font-family:'Playfair Display',Georgia,serif;
   font-size:1.15rem;font-weight:700;
   color:#fff;letter-spacing:-.01em;
 }
-.mnav-logo-text span{color:#9ACD5A}
+.mnav-logo-text span{color:#D7F0C8}
 .mnav-right{display:flex;align-items:center;gap:16px}
 .mnav-phone{
   font-size:.82rem;font-weight:600;
@@ -58,19 +58,19 @@ nav#main-nav{
 .mnav-kontakt:hover{color:#fff}
 .mnav-btn{
   display:flex;align-items:center;gap:8px;
-  background:none;border:1.5px solid rgba(255,255,255,.18);
-  color:#fff;padding:8px 18px;border-radius:2px;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.24);
+  color:#fff;padding:8px 18px;border-radius:100px;
   font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   cursor:pointer;transition:all .2s;font-family:inherit;
 }
-.mnav-btn:hover{border-color:#9ACD5A;color:#9ACD5A}
+.mnav-btn:hover{border-color:#D7F0C8;color:#D7F0C8}
 .mnav-btn-lines{display:flex;flex-direction:column;gap:3px}
 .mnav-btn-lines span{display:block;width:13px;height:1.5px;background:currentColor;border-radius:1px;transition:all .2s}
 
 /* MENU OVERLAY */
 .moverlay{
   position:fixed;inset:0;z-index:300;
-  background:rgba(6,20,10,0.98);
+  background:rgba(15,38,20,0.97);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   display:none;flex-direction:column;
   overflow-y:auto;
@@ -88,11 +88,11 @@ nav#main-nav{
   font-size:1.15rem;font-weight:700;color:#fff;
   text-decoration:none;
 }
-.moverlay-logo span{color:#9ACD5A}
+.moverlay-logo span{color:#D7F0C8}
 .moverlay-close{
   display:flex;align-items:center;gap:8px;
   background:none;border:1.5px solid rgba(255,255,255,.15);
-  color:rgba(255,255,255,.6);padding:8px 18px;border-radius:2px;
+  color:rgba(255,255,255,.6);padding:8px 18px;border-radius:100px;
   font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   cursor:pointer;transition:all .2s;font-family:inherit;
 }
@@ -110,8 +110,8 @@ nav#main-nav{
   transition:all .2s;
 }
 .moverlay-item:first-child{border-top:1px solid rgba(255,255,255,.06)}
-.moverlay-item:hover .mov-sub{color:#9ACD5A}
-.moverlay-item:hover .mov-arrow{color:#9ACD5A;transform:translateX(5px)}
+.moverlay-item:hover .mov-sub{color:#D7F0C8}
+.moverlay-item:hover .mov-arrow{color:#D7F0C8;transform:translateX(5px)}
 .mov-icon i{font-size:1.3rem;color:rgba(255,255,255,.7)}
 .mov-icon{
   width:44px;height:44px;border-radius:3px;
@@ -121,7 +121,7 @@ nav#main-nav{
   transition:background .2s;
 }
 .moverlay-item:hover .mov-icon i{font-size:1.3rem;color:rgba(255,255,255,.7)}
-.mov-icon{background:rgba(154,205,90,.12)}
+.mov-icon{background:rgba(215,240,200,.14)}
 .mov-text{flex:1;min-width:0}
 .mov-label{
   font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
@@ -161,8 +161,14 @@ document.head.appendChild(style);
 // NAV HTML
 const navHTML = `
 <nav id="main-nav">
-  <a class="mnav-logo" href="index.html">
-    <img src="images/logo.png" alt="POKOSEK.CZ" onerror="this.style.display='none'"/>
+  <a class="mnav-logo" href="index.html" aria-label="POKOSEK.CZ — úvod">
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+      <path d="M9 24c3-9 8-13 11-14-2 4-2 9-1 13" fill="none" stroke="#D7F0C8" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M31 24c-3-9-8-13-11-14 2 4 2 9 1 13" fill="none" stroke="#D7F0C8" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M11 25.5h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span class="mnav-logo-text">POKOSEK<span>.CZ</span></span>
   </a>
   <div class="mnav-right">
     <a class="mnav-mail" href="mailto:info@pokosek.cz">✉ MAIL</a>
@@ -281,8 +287,8 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); 
 const mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   mainNav.style.background = scrollY > 40
-    ? 'rgba(6,18,8,0.98)'
-    : 'rgba(8,24,12,0.95)';
+    ? 'linear-gradient(120deg, rgba(63,122,74,.72) 0%, rgba(15,38,20,0.94) 100%)'
+    : 'linear-gradient(120deg, rgba(63,122,74,.55) 0%, rgba(22,50,29,.82) 100%)';
 }, { passive: true });
 
 // Body padding for fixed nav
