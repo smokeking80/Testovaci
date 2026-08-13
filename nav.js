@@ -41,14 +41,17 @@ nav#main-nav{
   font-size:.82rem;font-weight:600;
   color:rgba(255,255,255,.65);text-decoration:none;
   transition:color .2s;
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:center;gap:7px;
 }
+.mnav-phone i{font-size:.95rem;line-height:1}
 .mnav-phone:hover{color:#fff}
 .mnav-mail{
   font-size:.78rem;font-weight:500;letter-spacing:.04em;
   color:rgba(255,255,255,.45);text-decoration:none;
   transition:color .2s;
+  display:flex;align-items:center;gap:7px;
 }
+.mnav-mail i{font-size:.95rem;line-height:1}
 .mnav-mail:hover{color:#fff}
 .mnav-kontakt{
   font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
@@ -171,8 +174,8 @@ const navHTML = `
     <span class="mnav-logo-text">POKOSEK<span>.CZ</span></span>
   </a>
   <div class="mnav-right">
-    <a class="mnav-mail" href="mailto:info@pokosek.cz">✉ MAIL</a>
-    <a class="mnav-phone" href="tel:+420735649011">📞 735 649 011</a>
+    <a class="mnav-mail" href="mailto:info@pokosek.cz"><i class="ph ph-envelope-simple"></i> MAIL</a>
+    <a class="mnav-phone" href="tel:+420735649011"><i class="ph ph-phone"></i> 735 649 011</a>
     <a class="mnav-kontakt" href="kontakt.html">KONTAKT</a>
     <button class="mnav-btn" id="mnavBtn" aria-label="Otevřít menu">
       <div class="mnav-btn-lines"><span></span><span></span><span></span></div>
