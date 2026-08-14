@@ -220,7 +220,7 @@ img{display:block;max-width:100%}
 .hero-tile::after{
   content:'';
   position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.15) 55%,transparent 100%);
+  background:linear-gradient(to top,rgba(0,0,0,.32) 0%,transparent 42%);
   z-index:1;
   transition:opacity .4s;
 }
@@ -234,20 +234,40 @@ img{display:block;max-width:100%}
 .hero-tile:hover::before{
   background:rgba(0,0,0,0.15);
 }
+/* Label as a little garden marker tag "planted" on the photo */
 .hero-tile-label{
   position:absolute;
-  bottom:0;left:0;right:0;
-  padding:14px 16px;
+  left:16px;bottom:16px;right:auto;
+  display:flex;align-items:center;gap:7px;
+  background:var(--cream);
+  color:var(--moss-deep);
+  padding:8px 15px 8px 12px;
+  border-radius:3px 12px 12px 3px;
   font-family:var(--serif);
-  font-size:clamp(.9rem,1.6vw,1.3rem);
-  font-weight:700;color:#fff;
+  font-size:clamp(.82rem,1.4vw,1.05rem);
+  font-weight:700;color:var(--charcoal);
   letter-spacing:-.01em;
   z-index:2;
-  transition:padding .3s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 10px 22px rgba(10,25,14,.4);
+  transform:rotate(-2.5deg);
+  transform-origin:bottom left;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;
 }
-.hero-tile:hover .hero-tile-label{padding-bottom:20px}
+.hero-tile-label::before{
+  content:'';
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+}
+.hero-tile-label::after{
+  content:'';
+  position:absolute;left:11px;bottom:-9px;
+  width:2px;height:11px;border-radius:1px;
+  background:var(--cream);
+  box-shadow:0 8px 10px rgba(10,25,14,.25);
+}
+.hero-tile:hover .hero-tile-label{transform:rotate(0deg) translateY(-4px);box-shadow:0 14px 28px rgba(10,25,14,.45)}
 .hero-tile:active .hero-tile-img{transform:scale(1.12)}
-.hero-tile:active .hero-tile-label{padding-bottom:20px}
+.hero-tile:active .hero-tile-label{transform:rotate(0deg) translateY(-4px)}
 @media(max-width:760px){
   #hero{padding:88px 10px 10px}
   .hero-tiles{
@@ -256,11 +276,11 @@ img{display:block;max-width:100%}
     margin-top:10px;
   }
   .hero-tile{min-height:160px}
-  .hero-tile-label{font-size:.95rem;padding:10px 12px}
+  .hero-tile-label{font-size:.85rem;padding:7px 12px 7px 10px;left:10px;bottom:10px}
 }
 @media(max-width:400px){
   .hero-tile{min-height:130px}
-  .hero-tile-label{font-size:.82rem;padding:8px 10px}
+  .hero-tile-label{font-size:.76rem;padding:6px 10px 6px 9px;left:8px;bottom:8px}
 }
 .hero-tag{
   display:inline-block;
