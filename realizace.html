@@ -1,1 +1,198 @@
 
+<!DOCTYPE html><html lang="cs"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Realizace — POKOSEK.CZ Brno</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#3E7A46;--green-mid:#5FA366;--green-light:#EAF5EA;--cream:#FAF9F2;--white:#FFFFFF;--charcoal:#16201A;--gray:#5C665D;--border:#DCE6DC;--moss-deep:#16321D;--sage-glow:#8FBF8A;--mint-glow:#D7F0C8;--gold-accent:#D9B36C;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--pad:clamp(20px,5vw,80px);}
+html{scroll-behavior:smooth}body{padding-top:72px;font-family:var(--sans);background:var(--cream);color:var(--charcoal);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--green)}img{display:block;max-width:100%}
+
+.page-hero{padding-top:72px;position:relative;height:50vh;min-height:300px;max-height:500px;overflow:hidden}
+.page-hero-img{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.55) 100%),url("images/realizace/hero.jpg") center/cover no-repeat, linear-gradient(135deg,var(--moss-deep),var(--green))}
+.page-hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 var(--pad) 48px;z-index:2}
+.page-breadcrumb{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px}
+.page-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(255,255,255,.12);border-radius:100px;backdrop-filter:blur(8px);transition:background .2s}.page-breadcrumb a:hover{background:rgba(255,255,255,.2);color:#fff}
+.page-h1{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:.95;letter-spacing:-.03em;color:#fff}
+.page-h1 em{font-style:italic;color:rgba(255,255,255,.7)}
+
+.rl-wrap{max-width:1200px;margin:0 auto;padding:72px var(--pad) 0}
+.rl-intro{max-width:640px;margin-bottom:48px}
+.rl-intro p{color:var(--gray);font-size:1.02rem;line-height:1.75}
+.rl-section-title{
+  font-family:var(--serif);font-size:1.6rem;font-weight:700;
+  color:var(--charcoal);letter-spacing:-.02em;
+  margin-bottom:28px;padding-bottom:14px;
+  border-bottom:2px solid var(--green);
+}
+
+/* GALERIE */
+.galerie-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  margin-bottom:80px;
+}
+.galerie-card{
+  position:relative;overflow:hidden;border-radius:8px;
+  aspect-ratio:4/3;border:1px solid var(--border);
+  box-shadow:0 8px 20px rgba(15,40,20,.08);
+}
+.galerie-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,1,.5,1)}
+.galerie-card:hover img{transform:scale(1.08)}
+.galerie-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.32) 0%,transparent 42%);
+}
+.galerie-label{
+  position:absolute;left:14px;bottom:14px;
+  display:flex;align-items:center;gap:7px;
+  background:var(--cream);color:var(--charcoal);
+  padding:7px 14px 7px 11px;border-radius:3px 12px 12px 3px;
+  font-family:var(--serif);font-size:.9rem;font-weight:700;
+  z-index:2;box-shadow:0 10px 22px rgba(10,25,14,.4);
+  transform:rotate(-2.5deg);transform-origin:bottom left;
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.galerie-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.galerie-label::after{content:'';position:absolute;left:10px;bottom:-8px;width:2px;height:10px;border-radius:1px;background:var(--cream)}
+.galerie-card:hover .galerie-label{transform:rotate(0deg) translateY(-3px)}
+
+/* PŘED / PO */
+.predpo-list{display:flex;flex-direction:column;gap:56px;margin-bottom:80px}
+.predpo-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.predpo-title{
+  font-family:var(--serif);font-size:1.15rem;font-weight:700;
+  color:var(--charcoal);margin-bottom:14px;grid-column:1/-1;
+}
+.predpo-item{position:relative;overflow:hidden;border-radius:8px;aspect-ratio:5/4;border:1px solid var(--border)}
+.predpo-item img{width:100%;height:100%;object-fit:cover}
+.predpo-chip{
+  position:absolute;top:14px;left:14px;z-index:2;
+  padding:6px 16px;border-radius:100px;
+  font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 6px 16px rgba(10,25,14,.3);
+}
+.predpo-item.pred .predpo-chip{background:var(--charcoal);color:#fff}
+.predpo-item.po .predpo-chip{background:var(--green);color:#fff}
+
+.rl-cta{
+  background:var(--charcoal);border-radius:8px;padding:40px;
+  text-align:center;margin-bottom:80px;
+}
+.rl-cta h3{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:12px}
+.rl-cta p{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:28px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:15px 32px;border-radius:2px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.btn-cta:hover{background:var(--green-mid);transform:translateY(-2px)}
+
+footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13 100%);padding:48px var(--pad) 32px}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px}
+.footer-logo{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:#fff}.footer-logo span{color:var(--green-mid)}
+.footer-tagline{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:4px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}.footer-links a{font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:860px){
+  .galerie-grid{grid-template-columns:repeat(2,1fr)}
+  .predpo-pair{grid-template-columns:1fr 1fr;gap:10px}
+}
+@media(max-width:480px){
+  .page-h1{font-size:clamp(1.8rem,8vw,2.5rem)}.page-hero{height:45vw;min-height:220px}
+  .galerie-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .predpo-pair{grid-template-columns:1fr 1fr}
+}
+</style></head><body>
+
+<div class="page-hero">
+  <div class="page-hero-img"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="index.html">← Zpět na úvod</a></div>
+    <h1 class="page-h1">Naše <em>realizace</em></h1>
+  </div>
+</div>
+
+<div class="rl-wrap">
+
+  <div class="rl-intro">
+    <p>Výběr z dokončených zakázek — sečení, zavlažování, úpravy okrajů i celkové proměny zahrad v Brně a okolí.</p>
+  </div>
+
+  <!-- GALERIE -->
+  <div class="rl-section-title">Galerie realizací</div>
+  <div class="galerie-grid">
+    <div class="galerie-card">
+      <img alt="Sečení trávníku" src="images/realizace/galerie-1.jpg"/>
+      <div class="galerie-label">Sečení — Brno-Žabovřesky</div>
+    </div>
+    <div class="galerie-card">
+      <img alt="Zavlažovací systém" src="images/realizace/galerie-2.jpg"/>
+      <div class="galerie-label">Zavlažování — rodinný dům</div>
+    </div>
+    <div class="galerie-card">
+      <img alt="Úprava okrajů trávníku" src="images/realizace/galerie-3.jpg"/>
+      <div class="galerie-label">Úprava okrajů</div>
+    </div>
+    <div class="galerie-card">
+      <img alt="Firemní areál" src="images/realizace/galerie-4.jpg"/>
+      <div class="galerie-label">Údržba areálu</div>
+    </div>
+    <div class="galerie-card">
+      <img alt="Návrh zahrady" src="images/realizace/galerie-5.jpg"/>
+      <div class="galerie-label">Nová výsadba</div>
+    </div>
+    <div class="galerie-card">
+      <img alt="Odvoz biomasy" src="images/realizace/galerie-6.jpg"/>
+      <div class="galerie-label">Odvoz biomasy</div>
+    </div>
+  </div>
+
+  <!-- PŘED / PO -->
+  <div class="rl-section-title">Před a po</div>
+  <div class="predpo-list">
+    <div class="predpo-pair">
+      <div class="predpo-title">Zarostlá zahrada — Brno-Bystrc</div>
+      <div class="predpo-item pred">
+        <div class="predpo-chip">Před</div>
+        <img alt="Zahrada před úpravou" src="images/realizace/projekt-1-pred.jpg"/>
+      </div>
+      <div class="predpo-item po">
+        <div class="predpo-chip">Po</div>
+        <img alt="Zahrada po úpravě" src="images/realizace/projekt-1-po.jpg"/>
+      </div>
+    </div>
+    <div class="predpo-pair">
+      <div class="predpo-title">Firemní areál — úprava trávníku</div>
+      <div class="predpo-item pred">
+        <div class="predpo-chip">Před</div>
+        <img alt="Areál před úpravou" src="images/realizace/projekt-2-pred.jpg"/>
+      </div>
+      <div class="predpo-item po">
+        <div class="predpo-chip">Po</div>
+        <img alt="Areál po úpravě" src="images/realizace/projekt-2-po.jpg"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="rl-cta">
+    <h3>Chcete podobný výsledek u vás?</h3>
+    <p>Napište nám a domluvíme si nezávaznou prohlídku zdarma.</p>
+    <a href="kontakt.html" class="btn-cta">Poptat realizaci →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-logo">POKOSEK<span>.CZ</span></div><div class="footer-tagline">Profesionální zahradní služby · Brno a okolí</div></div>
+    <nav class="footer-links">
+      <a href="seceni.html">Sečení</a><a href="zavlazovani.html">Zavlažování</a><a href="navrhy.html">Návrhy</a>
+      <a href="arealy.html">Areály</a><a href="upravy.html">Úprava okrajů</a><a href="odvoz.html">Odvoz biomasy</a>
+      <a href="realizace.html">Realizace</a><a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+  <p class="footer-copy">© 2025 POKOSEK.CZ · Brno a okolí</p>
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>
