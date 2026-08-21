@@ -1,13 +1,14 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://testovaci.vercel.app/</loc></url>
-  <url><loc>https://testovaci.vercel.app/seceni.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/zavlazovani.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/navrhy.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/upravy.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/arealy.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/odvoz.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/cenik.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/realizace.html</loc></url>
-  <url><loc>https://testovaci.vercel.app/kontakt.html</loc></url>
+  <url><loc>https://www.pokosek.cz/</loc></url>
+  <url><loc>https://www.pokosek.cz/zavlazovani.html</loc></url>
+  <url><loc>https://www.pokosek.cz/navrhy.html</loc></url>
+  <url><loc>https://www.pokosek.cz/upravy.html</loc></url>
+  <url><loc>https://www.pokosek.cz/arealy.html</loc></url>
+  <url><loc>https://www.pokosek.cz/odvoz.html</loc></url>
+  <url><loc>https://www.pokosek.cz/cenik.html</loc></url>
+  <url><loc>https://www.pokosek.cz/realizace.html</loc></url>
+  <url><loc>https://www.pokosek.cz/kontakt.html</loc></url>
 </urlset>
+```
