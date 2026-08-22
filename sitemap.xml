@@ -1,7 +1,7 @@
-```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.pokosek.cz/</loc></url>
+  <url><loc>https://www.pokosek.cz/seceni.html</loc></url>
   <url><loc>https://www.pokosek.cz/zavlazovani.html</loc></url>
   <url><loc>https://www.pokosek.cz/navrhy.html</loc></url>
   <url><loc>https://www.pokosek.cz/upravy.html</loc></url>
@@ -11,4 +11,3 @@
   <url><loc>https://www.pokosek.cz/realizace.html</loc></url>
   <url><loc>https://www.pokosek.cz/kontakt.html</loc></url>
 </urlset>
-```
