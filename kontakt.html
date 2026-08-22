@@ -122,8 +122,18 @@ textarea{resize:vertical;min-height:100px}
 .mapa-link{margin-bottom:16px}
 .mapa-link a{font-size:.82rem;color:var(--green);text-decoration:none;font-weight:500}
 .mapa-link a:hover{text-decoration:underline}
-.mapa-embed{width:100%;height:360px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.mapa-embed{width:100%;height:360px;border-radius:4px;overflow:hidden;border:1px solid var(--border);position:relative}
 .mapa-embed iframe{width:100%;height:100%;border:0}
+.mapa-consent{
+  width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;text-align:center;padding:24px;background:var(--green-light);
+}
+.mapa-consent p{max-width:340px;font-size:.85rem;color:var(--gray)}
+.mapa-consent button{
+  background:var(--green);color:#fff;border:none;padding:12px 26px;border-radius:2px;
+  font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s;
+}
+.mapa-consent button:hover{background:var(--green-mid)}
 /* FOOTER */
 footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13 100%);padding:48px var(--pad) 32px}
 .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px}
@@ -291,10 +301,20 @@ footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13
 <div class="mapa-section">
   <h2 class="mapa-h">Mezníkova 394/4, Brno-Žabovřesky</h2>
   <p class="mapa-link"><a href="https://www.google.com/maps/place/Mezn%C3%ADkova+394%2F4,+616+00+Brno-%C5%BDabov%C5%99esky" target="_blank" rel="noopener">Otevřít v Google Maps →</a></p>
-  <div class="mapa-embed">
-    <iframe src="https://www.google.com/maps?q=Mezn%C3%ADkova+394%2F4,+616+00+Brno-%C5%BDabov%C5%99esky,+Czechia&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa"></iframe>
+  <div class="mapa-embed" id="mapaEmbed">
+    <div class="mapa-consent" id="mapaConsent">
+      <p>Mapa se načítá z Google Maps a nastavuje vlastní cookies. Kliknutím ji zobrazíte.</p>
+      <button type="button" id="mapaLoadBtn">Zobrazit mapu</button>
+    </div>
   </div>
 </div>
+
+<script>
+document.getElementById('mapaLoadBtn').addEventListener('click', function(){
+  document.getElementById('mapaEmbed').innerHTML =
+    '<iframe src="https://www.google.com/maps?q=Mezn%C3%ADkova+394%2F4,+616+00+Brno-%C5%BDabov%C5%99esky,+Czechia&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa"></iframe>';
+});
+</script>
 
 <footer>
   <div class="footer-top">
@@ -310,6 +330,7 @@ footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13
       <a href="upravy.html">Úprava okrajů</a>
       <a href="odvoz.html">Odvoz biomasy</a>
       <a href="kontakt.html">Kontakt</a>
+      <a href="gdpr.html">Ochrana údajů</a><a href="#" class="cookie-settings-link">Nastavení cookies</a>
     </nav>
   </div>
   <p class="footer-copy">© 2025 POKOSEK.CZ · Sekání trávy, zavlažování, péče o firemní a veřejné plochy</p>
@@ -325,6 +346,7 @@ function selectChoice(groupId, inputId, btn, value){
   document.getElementById(inputId).value = value;
 }
 </script>
+<script src="cookie-consent.js"></script>
 <script src="nav.js"></script>
 </body>
 </html>
