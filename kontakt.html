@@ -339,6 +339,39 @@ document.getElementById('mapaLoadBtn').addEventListener('click', function(){
 
 
 <script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = document.getElementById('submitBtn');
+  var originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Odesílám…';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if (data.success) {
+      form.style.display = 'none';
+      document.getElementById('successBox').classList.add('show');
+      // Track the conversion in GA4 (only fires if analytics consent was given)
+      if (window.gtag) { window.gtag('event', 'generate_lead'); }
+    } else {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      alert('Něco se nepovedlo. Zkuste to prosím znovu, nebo nám zavolejte na +420 730 610 002.');
+    }
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = originalText;
+    alert('Něco se nepovedlo. Zkuste to prosím znovu, nebo nám zavolejte na +420 730 610 002.');
+  });
+});
+
 function selectChoice(groupId, inputId, btn, value){
   var group = document.getElementById(groupId);
   group.querySelectorAll('.choice-btn').forEach(function(b){ b.classList.remove('selected'); });
@@ -347,6 +380,7 @@ function selectChoice(groupId, inputId, btn, value){
 }
 </script>
 <script src="cookie-consent.js"></script>
+<script src="ga4.js"></script>
 <script src="nav.js"></script>
 </body>
 </html>
