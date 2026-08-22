@@ -175,7 +175,7 @@ const navHTML = `
   </a>
   <div class="mnav-right">
     <a class="mnav-mail" href="mailto:abcpokorny@seznam.cz"><i class="ph ph-envelope-simple"></i> MAIL</a>
-    <a class="mnav-phone" href="tel:+420735649011"><i class="ph ph-phone"></i> 735 649 011</a>
+    <a class="mnav-phone" href="tel:+420730610002"><i class="ph ph-phone"></i> 730 610 002</a>
     <a class="mnav-kontakt" href="kontakt.html">KONTAKT</a>
     <button class="mnav-btn" id="mnavBtn" aria-label="Otevřít menu">
       <div class="mnav-btn-lines"><span></span><span></span><span></span></div>
@@ -258,7 +258,7 @@ const overlayHTML = `
     </a>
   </div>
   <div class="moverlay-bottom">
-    <a href="tel:+420735649011">+420 735 649 011</a>
+    <a href="tel:+420730610002">+420 730 610 002</a>
     <a href="mailto:abcpokorny@seznam.cz.cz">abcpokorny@seznam.cz</a>
     <a href="kontakt.html">Poptávka zdarma →</a>
   </div>
