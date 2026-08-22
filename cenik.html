@@ -76,6 +76,33 @@ body{font-family:var(--sans);background:var(--cream);color:var(--charcoal);line-
   margin-top:16px;
 }
 .cenik-note-box strong{font-weight:600}
+
+.cenik-subheading{
+  font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--green);margin:28px 0 12px;
+}
+.cenik-grouped{width:100%;border-collapse:collapse}
+.cenik-grouped td{padding:10px 0;font-size:.9rem;line-height:1.5}
+.cenik-grouped tr.price-row{border-bottom:1px solid var(--border)}
+.cenik-grouped tbody tr.price-row:last-child{border-bottom:none}
+.cenik-grouped tr.group-heading td{
+  padding:20px 0 8px;font-weight:700;color:var(--charcoal);
+  font-size:.95rem;
+}
+.cenik-grouped tr.group-heading:first-child td{padding-top:2px}
+.cenik-grouped .desc{color:var(--gray);padding-left:14px}
+.cenik-grouped .price{
+  font-weight:700;color:var(--green);text-align:right;white-space:nowrap;
+  padding-left:12px;font-size:.95rem;
+}
+.cenik-grouped tr.price-row:hover td{background:var(--green-light)}
+.cenik-grouped tr.price-row:hover td.desc{border-radius:4px 0 0 4px}
+.cenik-grouped tr.price-row:hover td.price{border-radius:0 4px 4px 0;padding-right:8px}
+
+@media(max-width:600px){
+  .cenik-grouped .desc{font-size:.82rem;padding-left:10px}
+  .cenik-grouped .price{font-size:.88rem}
+}
 .cenik-cta{
   background:var(--charcoal);
   border-radius:8px;padding:40px;
@@ -132,15 +159,32 @@ footer{background:linear-gradient(160deg,#0E1F13 0%,var(--moss-deep) 50%,#0E1F13
         <td>Sečení traktorem — plochy do 3 000 m²</td>
         <td>1,60 Kč/m²</td>
       </tr>
-      <tr>
-        <td>Sečení sekačkou nebo křovinořezem</td>
-        <td>2,50 Kč/m²</td>
-      </tr>
-      <tr>
-        <td>Sečení křovinořezem ve svazích a stráních</td>
-        <td>3,- Kč/m²</td>
-      </tr>
     </table>
+
+    <div class="cenik-subheading">Sečení sekačkou / křovinořezem — dle výšky trávy a terénu</div>
+    <table class="cenik-grouped">
+      <tr class="group-heading"><td colspan="2">Tráva do 20 cm</td></tr>
+      <tr class="price-row"><td class="desc">Rovná plocha</td><td class="price">3 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Mírně členitý terén</td><td class="price">4 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Hrabání</td><td class="price">2 Kč/m²</td></tr>
+
+      <tr class="group-heading"><td colspan="2">Tráva 20–50 cm</td></tr>
+      <tr class="price-row"><td class="desc">Rovná plocha</td><td class="price">4–5 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Náročnější terén (svahy, kamení, překážky)</td><td class="price">6 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Hrabání (rovná plocha)</td><td class="price">2 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Hrabání (náročnější terén)</td><td class="price">3 Kč/m²</td></tr>
+
+      <tr class="group-heading"><td colspan="2">Tráva 50–100 cm</td></tr>
+      <tr class="price-row"><td class="desc">Rovná plocha</td><td class="price">6 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Nerovný terén nebo špatný přístup</td><td class="price">7–9 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Hrabání (rovná plocha, náročnější terén)</td><td class="price">3 Kč/m²</td></tr>
+
+      <tr class="group-heading"><td colspan="2">Tráva nad 100 cm</td></tr>
+      <tr class="price-row"><td class="desc">Rovná plocha</td><td class="price">10 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Obtížný terén, svahy, mokro</td><td class="price">11–15 Kč/m²</td></tr>
+      <tr class="price-row"><td class="desc">Hrabání (rovná plocha, náročnější terén)</td><td class="price">3 Kč/m²</td></tr>
+    </table>
+
     <div class="cenik-note-box">
       <strong>Poznámka:</strong> Za odstraňování překážek (kameny, větve a jiné předměty) účtujeme příplatek v hodinové sazbě.
     </div>
