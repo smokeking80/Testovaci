@@ -838,15 +838,20 @@ footer{
 .galerie-header::before{content:'🌿';font-size:.9rem}
 .galerie-track-wrap{
   max-width:1100px;margin:0 auto;
-  overflow:hidden;
   position:relative;
 }
 .galerie-track{
   display:flex;gap:20px;
-  transition:transform .4s cubic-bezier(.22,1,.36,1);
-  will-change:transform;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding-bottom:2px; /* avoids clipping card shadow during scroll */
 }
+.galerie-track::-webkit-scrollbar{display:none}
 .galerie-card{
+  scroll-snap-align:start;
   flex:0 0 calc(25% - 15px);
   border-radius:12px;overflow:hidden;
   background:var(--white);
@@ -1304,6 +1309,7 @@ function toggleAcc(btn){
   const cards = track.querySelectorAll('.galerie-card');
   const total = cards.length;
   let current = 0;
+  let dots = [];
 
   // Create dots
   cards.forEach((_,i)=>{
@@ -1312,27 +1318,33 @@ function toggleAcc(btn){
     dot.setAttribute('aria-label', 'Snímek ' + (i+1));
     dot.addEventListener('click', ()=>goTo(i));
     nav.appendChild(dot);
+    dots.push(dot);
   });
 
-  function goTo(idx){
+  function setActive(idx){
     current = idx;
-    const cardW = cards[0].offsetWidth + 20;
-    track.style.transform = 'translateX(-' + (cardW * current) + 'px)';
-    nav.querySelectorAll('.galerie-dot').forEach((d,i)=>{
-      d.classList.toggle('active', i===current);
-    });
+    dots.forEach((d,i)=> d.classList.toggle('active', i===current));
   }
 
-  // Touch/swipe support
-  let startX = 0;
-  track.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; }, {passive:true});
-  track.addEventListener('touchend', e=>{
-    const diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 50){
-      if(diff > 0 && current < total-1) goTo(current+1);
-      else if(diff < 0 && current > 0) goTo(current-1);
-    }
-  });
+  function goTo(idx){
+    idx = Math.max(0, Math.min(total-1, idx));
+    cards[idx].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+    setActive(idx);
+  }
+
+  // Keep dots in sync during native swipe/trackpad/drag scrolling
+  let scrollTimeout;
+  track.addEventListener('scroll', ()=>{
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(()=>{
+      let closest = 0, closestDist = Infinity;
+      cards.forEach((card,i)=>{
+        const dist = Math.abs(card.offsetLeft - track.scrollLeft);
+        if(dist < closestDist){ closestDist = dist; closest = i; }
+      });
+      setActive(closest);
+    }, 100);
+  }, {passive:true});
 })();
 </script>
 
